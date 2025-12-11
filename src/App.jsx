@@ -32,6 +32,16 @@ export default function EssayPlatform() {
       excerpt: "How the spaces we inhabit shape the way we think and dream.",
       content: "We shape our buildings...",
       likes: 930
+    },
+    {
+      id: 4,
+      title: "My New Essay Title",
+      author: "Kishan Dev",
+      date: "DEC 12, 2025",
+      readTime: "5 min read",
+      excerpt: "This is the short summary that appears on the homepage.",
+      content: "Here is where you write the full essay. You can write as much as you want...",
+      likes: 0
     }
   ]);
 
