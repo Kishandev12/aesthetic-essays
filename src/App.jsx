@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, Search, User, Clock, Heart } from 'lucide-react';
+import { BookOpen, Search, User, Clock, Heart, Sparkles } from 'lucide-react';
 
 export default function EssayPlatform() {
   const [essays] = useState([
@@ -9,8 +9,8 @@ export default function EssayPlatform() {
       author: "Kishan Dev",
       date: "DEC 11, 2025",
       readTime: "8 min read",
+      category: "Philosophy",
       excerpt: "Why our perception of the future is just a memory of the past.",
-      content: "Time does not flow like a river...",
       likes: 842
     },
     {
@@ -19,82 +19,89 @@ export default function EssayPlatform() {
       author: "Marcus Lee",
       date: "DEC 08, 2025",
       readTime: "12 min read",
+      category: "Technology",
       excerpt: "In a world of constant connection, the only luxury left is absence.",
-      content: "The screen lit up...",
       likes: 1205
     },
     {
       id: 3,
-      title: "Architecture of Thought",
+      title: "Colors of Thought",
       author: "Sarah Chen",
       date: "DEC 05, 2025",
       readTime: "15 min read",
+      category: "Art",
       excerpt: "How the spaces we inhabit shape the way we think and dream.",
-      content: "We shape our buildings...",
       likes: 930
-    },
-    {
-      id: 4,
-      title: "My New Essay Title",
-      author: "Kishan Dev",
-      date: "DEC 12, 2025",
-      readTime: "5 min read",
-      excerpt: "This is the short summary that appears on the homepage.",
-      content: "Here is where you write the full essay. You can write as much as you want...",
-      likes: 0
     }
   ]);
 
   return (
-    <div className="min-h-screen bg-[#fcfdfc] text-slate-900 font-serif selection:bg-slate-200">
-      {/* Minimalist Header */}
-      <header className="border-b border-slate-200 bg-white sticky top-0 z-10">
-        <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <BookOpen className="w-6 h-6 text-slate-900" />
-            <span className="text-xl font-bold tracking-tight">AEONIC</span>
+    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 font-sans selection:bg-purple-200">
+      
+      {/* Glass Header */}
+      <header className="sticky top-0 z-10 bg-white/70 backdrop-blur-md border-b border-white/20 shadow-sm">
+        <div className="max-w-4xl mx-auto px-6 h-20 flex items-center justify-between">
+          <div className="flex items-center gap-2 text-indigo-900">
+            <div className="p-2 bg-indigo-600 rounded-lg text-white shadow-lg">
+              <BookOpen size={24} />
+            </div>
+            <span className="text-2xl font-bold tracking-tight">Aeonic</span>
           </div>
-          <button className="text-sm font-sans font-medium hover:text-slate-600 transition-colors">
-            SUBSCRIBE
+          <button className="px-6 py-2 bg-slate-900 text-white rounded-full font-medium hover:bg-slate-800 transition-all hover:shadow-lg transform hover:-translate-y-0.5">
+            Subscribe
           </button>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="max-w-3xl mx-auto px-6 py-16">
-        <div className="text-center mb-20">
-          <h1 className="text-6xl mb-6 font-medium tracking-tight text-slate-900">
-            Essays
+      <main className="max-w-4xl mx-auto px-6 py-20">
+        
+        {/* Hero Section */}
+        <div className="text-center mb-24">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-sm font-semibold mb-6 border border-indigo-100">
+            <Sparkles size={14} /> Daily Curated Reads
+          </span>
+          <h1 className="text-6xl md:text-7xl font-bold text-slate-900 mb-6 tracking-tight leading-tight">
+            Ideas that <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-600">bloom.</span>
           </h1>
-          <p className="text-xl text-slate-500 font-sans font-light italic">
-            Ideas that matter, published daily.
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            A space for colorful thoughts and vivid dreams. Discover essays that matter.
           </p>
         </div>
 
-        <div className="space-y-16">
+        {/* Essay Grid */}
+        <div className="grid gap-8">
           {essays.map(essay => (
-            <article key={essay.id} className="group cursor-pointer border-b border-slate-100 pb-12">
-              <div className="flex items-center gap-3 text-xs font-sans font-bold tracking-wider text-slate-400 mb-4">
-                <span className="text-slate-900 uppercase">{essay.author}</span>
-                <span>•</span>
-                <span>{essay.date}</span>
+            <article key={essay.id} className="group relative bg-white/60 backdrop-blur-sm rounded-3xl p-8 md:p-10 border border-white/50 shadow-sm hover:shadow-xl hover:bg-white/80 transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+              
+              <div className="flex items-center gap-3 text-sm font-bold tracking-wider text-indigo-500 mb-4">
+                <span className="bg-indigo-50 px-3 py-1 rounded-full">{essay.category}</span>
+                <span className="text-slate-400">•</span>
+                <span className="text-slate-500">{essay.date}</span>
               </div>
               
-              <h2 className="text-4xl leading-tight mb-4 group-hover:text-slate-600 transition-colors duration-300">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 group-hover:text-indigo-700 transition-colors">
                 {essay.title}
               </h2>
               
-              <p className="text-xl text-slate-600 leading-relaxed mb-6 font-serif">
+              <p className="text-lg text-slate-600 leading-relaxed mb-8">
                 {essay.excerpt}
               </p>
               
-              <div className="flex items-center justify-between mt-6">
-                <span className="text-xs font-sans font-medium text-slate-400 flex items-center gap-1">
-                  <Clock size={12} /> {essay.readTime}
-                </span>
-                <span className="text-xs font-sans font-medium text-slate-400 flex items-center gap-1">
-                  <Heart size={12} /> {essay.likes}
-                </span>
+              <div className="flex items-center justify-between pt-8 border-t border-slate-100/50">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-400 to-pink-400"></div>
+                  <span className="text-sm font-bold text-slate-700">{essay.author}</span>
+                </div>
+                
+                <div className="flex items-center gap-6 text-slate-400 text-sm font-medium">
+                  <span className="flex items-center gap-1.5 hover:text-indigo-500 transition-colors">
+                    <Clock size={16} /> {essay.readTime}
+                  </span>
+                  <span className="flex items-center gap-1.5 hover:text-pink-500 transition-colors">
+                    <Heart size={16} /> {essay.likes}
+                  </span>
+                </div>
               </div>
             </article>
           ))}
