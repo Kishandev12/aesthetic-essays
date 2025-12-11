@@ -1,44 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BookOpen, Search, User, Clock, Heart, Sparkles } from 'lucide-react';
+import { essays } from './essays'; // <--- Importing your separate file here!
 
 export default function EssayPlatform() {
-  const [essays] = useState([
-    {
-      id: 1,
-      title: "The Illusion of Time",
-      author: "Kishan Dev",
-      date: "DEC 11, 2025",
-      readTime: "8 min read",
-      category: "Philosophy",
-      excerpt: "Why our perception of the future is just a memory of the past.",
-      likes: 842
-    },
-    {
-      id: 2,
-      title: "Digital Silence",
-      author: "Marcus Lee",
-      date: "DEC 08, 2025",
-      readTime: "12 min read",
-      category: "Technology",
-      excerpt: "In a world of constant connection, the only luxury left is absence.",
-      likes: 1205
-    },
-    {
-      id: 3,
-      title: "Colors of Thought",
-      author: "Sarah Chen",
-      date: "DEC 05, 2025",
-      readTime: "15 min read",
-      category: "Art",
-      excerpt: "How the spaces we inhabit shape the way we think and dream.",
-      likes: 930
-    }
-  ]);
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 font-sans selection:bg-purple-200">
-      
-      {/* Glass Header */}
+
       <header className="sticky top-0 z-10 bg-white/70 backdrop-blur-md border-b border-white/20 shadow-sm">
         <div className="max-w-4xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2 text-indigo-900">
@@ -53,10 +20,7 @@ export default function EssayPlatform() {
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="max-w-4xl mx-auto px-6 py-20">
-        
-        {/* Hero Section */}
         <div className="text-center mb-24">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-sm font-semibold mb-6 border border-indigo-100">
             <Sparkles size={14} /> Daily Curated Reads
@@ -69,31 +33,25 @@ export default function EssayPlatform() {
           </p>
         </div>
 
-        {/* Essay Grid */}
         <div className="grid gap-8">
           {essays.map(essay => (
             <article key={essay.id} className="group relative bg-white/60 backdrop-blur-sm rounded-3xl p-8 md:p-10 border border-white/50 shadow-sm hover:shadow-xl hover:bg-white/80 transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-              
               <div className="flex items-center gap-3 text-sm font-bold tracking-wider text-indigo-500 mb-4">
                 <span className="bg-indigo-50 px-3 py-1 rounded-full">{essay.category}</span>
                 <span className="text-slate-400">•</span>
                 <span className="text-slate-500">{essay.date}</span>
               </div>
-              
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 group-hover:text-indigo-700 transition-colors">
                 {essay.title}
               </h2>
-              
               <p className="text-lg text-slate-600 leading-relaxed mb-8">
                 {essay.excerpt}
               </p>
-              
               <div className="flex items-center justify-between pt-8 border-t border-slate-100/50">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-gradient-to-r from-indigo-400 to-pink-400"></div>
                   <span className="text-sm font-bold text-slate-700">{essay.author}</span>
                 </div>
-                
                 <div className="flex items-center gap-6 text-slate-400 text-sm font-medium">
                   <span className="flex items-center gap-1.5 hover:text-indigo-500 transition-colors">
                     <Clock size={16} /> {essay.readTime}
