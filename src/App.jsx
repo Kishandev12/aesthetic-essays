@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { BookOpen, Search, User, Clock, Heart } from 'lucide-react';
 
 export default function EssayPlatform() {
-  const [view, setView] = useState('home');
   const [essays] = useState([
     {
       id: 1,
       title: "The Illusion of Time",
-      author: "Sarah Chen",
-      date: "DEC 10, 2025",
+      author: "Kishan Dev",
+      date: "DEC 11, 2025",
       readTime: "8 min read",
       excerpt: "Why our perception of the future is just a memory of the past.",
       content: "Time does not flow like a river...",
@@ -23,6 +22,16 @@ export default function EssayPlatform() {
       excerpt: "In a world of constant connection, the only luxury left is absence.",
       content: "The screen lit up...",
       likes: 1205
+    },
+    {
+      id: 3,
+      title: "Architecture of Thought",
+      author: "Sarah Chen",
+      date: "DEC 05, 2025",
+      readTime: "15 min read",
+      excerpt: "How the spaces we inhabit shape the way we think and dream.",
+      content: "We shape our buildings...",
+      likes: 930
     }
   ]);
 
@@ -60,15 +69,15 @@ export default function EssayPlatform() {
                 <span>•</span>
                 <span>{essay.date}</span>
               </div>
-
+              
               <h2 className="text-4xl leading-tight mb-4 group-hover:text-slate-600 transition-colors duration-300">
                 {essay.title}
               </h2>
-
+              
               <p className="text-xl text-slate-600 leading-relaxed mb-6 font-serif">
                 {essay.excerpt}
               </p>
-
+              
               <div className="flex items-center justify-between mt-6">
                 <span className="text-xs font-sans font-medium text-slate-400 flex items-center gap-1">
                   <Clock size={12} /> {essay.readTime}
