@@ -505,44 +505,6 @@
     
     <script>
         // Default essays (will be loaded only if no essays exist in storage)
-        const defaultEssays = [
-            {
-                id: 1,
-                title: "On the Nature of Time",
-                author: "Sarah Chen",
-                date: "December 10, 2025",
-                category: "Essay",
-                excerpt: "Time moves in circles, not lines. We return to the same moments, different people, carrying the weight of everything we've learned along the way...",
-                content: "Time moves in circles, not lines. We return to the same moments, different people, carrying the weight of everything we've learned along the way.\n\nI found myself standing in the same coffee shop where I once waited for you, three years dissolved between that morning and this one. The barista is different. The menu has changed. But the light falls through the window at the same angle, pooling on the wooden table in the corner.\n\nProust was right about memory—it ambushes us through the senses. The smell of cardamom in my latte transported me instantly to that conversation we had about parallel universes, how somewhere in the infinite expanse of possibility, we made different choices.\n\nBut perhaps time isn't about choices at all. Perhaps it's about recognition—seeing the same patterns emerge in different contexts, understanding that we're always arriving at new versions of old truths.\n\nThe Greeks had two words for time: chronos and kairos. Chronos is sequential, measured, the ticking of a clock. Kairos is the right moment, the opportune time, the fullness of time. We live in chronos but long for kairos."
-            },
-            {
-                id: 2,
-                title: "Digital Gardens and Slow Thinking",
-                author: "Marcus Lee",
-                date: "December 8, 2025",
-                category: "Technology",
-                excerpt: "In an age of instant updates, we've forgotten the joy of ideas that grow slowly, evolving over months and years like perennial plants...",
-                content: "In an age of instant updates, we've forgotten the joy of ideas that grow slowly, evolving over months and years like perennial plants.\n\nA digital garden is not a blog. It's a space where thoughts evolve, where half-formed ideas are planted and tended over time. Each page is a living document, updated as understanding deepens.\n\nI've been cultivating my own digital garden for six months now. Some notes remain sparse—single sentences or questions. Others have blossomed into interconnected webs of thought, linked to dozens of other pages.\n\nThe beauty is in the mess. In traditional publishing, we present only finished thinking. But gardens show the process: the dead ends, the revisions, the gradual refinement of intuition into argument.\n\nThis slower pace feels revolutionary. Not everything needs to be polished and posted immediately. Some ideas need time to breathe."
-            },
-            {
-                id: 3,
-                title: "The Poetry of Empty Spaces",
-                author: "Elena Rodriguez",
-                date: "December 5, 2025",
-                category: "Culture",
-                excerpt: "What we choose not to say often speaks louder than words. In design, in conversation, in life—the empty spaces define the whole...",
-                content: "What we choose not to say often speaks louder than words. In design, in conversation, in life—the empty spaces define the whole.\n\nJapanese aesthetics understands this deeply. Ma—the concept of negative space—is not absence but presence. The pause between notes gives music its rhythm. The blank space around calligraphy gives the characters their power.\n\nI learned this lesson slowly, through years of over-explaining, over-designing, over-sharing. Trying to fill every silence, answer every question, justify every choice.\n\nBut restraint is its own form of generosity. Leaving room for interpretation is a gift to the reader, the listener, the observer. It says: I trust your intelligence. I trust you to complete this thought.\n\nIn our age of information abundance, perhaps the most radical act is to leave space. To allow silence. To trust in the power of what remains unsaid."
-            },
-            {
-                id: 4,
-                title: "Letters from a Quiet Room",
-                author: "Thomas Wright",
-                date: "December 1, 2025",
-                category: "Memoir",
-                excerpt: "The pandemic taught me that solitude and loneliness are not synonyms. One is chosen; the other imposed. One is rich with possibility; the other aches with absence...",
-                content: "The pandemic taught me that solitude and loneliness are not synonyms. One is chosen; the other imposed. One is rich with possibility; the other aches with absence.\n\nI spent those months in a small apartment, watching the seasons change through a single window. Spring came, indifferent to our suffering. Summer blazed. Fall arrived with its usual poetry.\n\nIn the silence, I discovered something unexpected: the volume of my own thoughts. Without the constant noise of social obligations, commutes, small talk, I could finally hear myself think.\n\nI read more in those six months than in the previous six years. I wrote letters—actual handwritten letters—to friends I hadn't spoken to in decades. I learned to bake bread, not from boredom but from a genuine desire to understand transformation.\n\nWhen the world reopened, I found myself reluctant to leave. Not from fear, but from a newfound appreciation for the richness of interior life. Solitude had become a practice, not a punishment."
-            }
-        ];
         
         // Load essays from storage or use defaults
         let essays = [];
@@ -627,6 +589,8 @@
         loadEssays();
         renderEssays();
     </script>
+<script src="essays.js"></script>
+<script>
 </body>
 </html>
 
