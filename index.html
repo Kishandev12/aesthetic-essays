@@ -504,7 +504,8 @@
     </div>
     
     <script>
-        let essays = [
+        // Default essays (will be loaded only if no essays exist in storage)
+        const defaultEssays = [
             {
                 id: 1,
                 title: "On the Nature of Time",
@@ -543,6 +544,23 @@
             }
         ];
         
+        // Load essays from storage or use defaults
+        let essays = [];
+        
+        function loadEssays() {
+            const stored = localStorage.getItem('journalEssays');
+            if (stored) {
+                essays = JSON.parse(stored);
+            } else {
+                essays = [...defaultEssays];
+                saveEssays();
+            }
+        }
+        
+        function saveEssays() {
+            localStorage.setItem('journalEssays', JSON.stringify(essays));
+        }
+        
         function renderEssays() {
             const grid = document.getElementById('essayGrid');
             const otherEssays = essays.slice(1);
@@ -568,7 +586,7 @@
         function handleSubmit(e) {
             e.preventDefault();
             const newEssay = {
-                id: essays.length + 1,
+                id: Date.now(), // Use timestamp for unique ID
                 title: document.getElementById('essayTitle').value,
                 author: document.getElementById('essayAuthor').value,
                 date: new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
@@ -577,8 +595,10 @@
                 content: document.getElementById('essayContent').value
             };
             essays.unshift(newEssay);
+            saveEssays();
             renderEssays();
             closeWriteModal();
+            alert('✓ Essay published successfully!');
         }
         
         function readEssay(id) {
@@ -603,7 +623,10 @@
             window.scrollTo(0, 0);
         }
         
+        // Initialize on page load
+        loadEssays();
         renderEssays();
     </script>
 </body>
 </html>
+
