@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check:essays": "node scripts/validate-essays.mjs",
+    "ci:check": "npm run lint && npm run check:essays"
   },
   "dependencies": {
     "lucide-react": "^0.560.0",

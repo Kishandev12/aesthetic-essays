@@ -1,4 +1,4 @@
-const essays = [
+export const essays = [
     {
         id: 1,
         title: "On the Nature of Time",
